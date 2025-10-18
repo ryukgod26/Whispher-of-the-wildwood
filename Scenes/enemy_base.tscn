@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://d2mxd4e0oeu28"]
+
+[node name="EnemyBase" type="Node2D"]
+
+[node name="Background" type="TileMapLayer" parent="."]

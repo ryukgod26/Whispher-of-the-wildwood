@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkvpvc58c4aw2"]
+
+[ext_resource type="Texture2D" uid="uid://b5wif1mugi0co" path="res://assets/tilesets/FreePack.png/FreePack.png" id="1_364xu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_364xu"]
+size = Vector2(93, 67)
+
+[node name="big_stone" type="StaticBody2D"]
+
+[node name="PlacementIndicator" type="ColorRect" parent="."]
+visible = false
+offset_left = -46.0
+offset_top = -35.0
+offset_right = 46.0
+offset_bottom = 32.0
+color = Color(0, 0.52156866, 1, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_364xu")
+region_enabled = true
+region_rect = Rect2(398.29694, 170.42584, 103.16077, 69.884674)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_364xu")

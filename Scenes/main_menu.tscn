@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=3 uid="uid://caqj60xq8xtrh"]
+
+[ext_resource type="Script" uid="uid://debovvhyyn1mt" path="res://Scripts/main_menu.gd" id="1_28flt"]
+[ext_resource type="Theme" uid="uid://dyi1funxgacax" path="res://Themes/button_blue.tres" id="2_48xlc"]
+[ext_resource type="Theme" uid="uid://k5itchl351el" path="res://Themes/button_green.tres" id="2_ce3w2"]
+[ext_resource type="Texture2D" uid="uid://cl3813dc25sm" path="res://assets/menu_images/main_menu.jpg" id="2_n45e2"]
+[ext_resource type="Theme" uid="uid://coov3mdve1f0k" path="res://Themes/button_red.tres" id="4_n45e2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_28flt"]
+texture = ExtResource("2_n45e2")
+
+[node name="Main_Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_28flt")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_28flt")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -286.5
+offset_top = -193.5
+offset_right = 286.5
+offset_bottom = 193.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 27
+
+[node name="Start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_ce3w2")
+text = "START"
+
+[node name="Options" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_48xlc")
+text = "OPTIONS"
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("4_n45e2")
+text = "QUIT"
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

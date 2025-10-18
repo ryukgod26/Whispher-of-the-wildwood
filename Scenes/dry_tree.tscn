@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://clk68s1p00s1t"]
+
+[ext_resource type="Texture2D" uid="uid://b5wif1mugi0co" path="res://assets/tilesets/FreePack.png/FreePack.png" id="1_upfuf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_upfuf"]
+size = Vector2(58, 107)
+
+[node name="dry_tree" type="StaticBody2D"]
+
+[node name="PlacementIndicator" type="ColorRect" parent="."]
+visible = false
+offset_left = -29.0
+offset_top = -53.0
+offset_right = 29.0
+offset_bottom = 54.0
+color = Color(0, 0.52156866, 1, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_upfuf")
+region_enabled = true
+region_rect = Rect2(293.00903, 274.0889, 61.092896, 108.81946)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0.5)
+shape = SubResource("RectangleShape2D_upfuf")

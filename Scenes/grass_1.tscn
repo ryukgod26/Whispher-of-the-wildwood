@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://c58femaeco46o"]
+
+[ext_resource type="Texture2D" uid="uid://b5wif1mugi0co" path="res://assets/tilesets/FreePack.png/FreePack.png" id="1_a2hs4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a2hs4"]
+size = Vector2(95, 81)
+
+[node name="grass_1" type="StaticBody2D"]
+
+[node name="PlacementIndicator" type="ColorRect" parent="."]
+visible = false
+offset_left = -49.0
+offset_top = -40.0
+offset_right = 46.0
+offset_bottom = 41.0
+color = Color(0, 0.52156866, 1, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_a2hs4")
+region_enabled = true
+region_rect = Rect2(128.11732, 45.22236, 96.56712, 82.47909)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, 0.5)
+shape = SubResource("RectangleShape2D_a2hs4")

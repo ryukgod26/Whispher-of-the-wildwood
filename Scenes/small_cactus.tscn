@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://bt3u7gvrppve0"]
+
+[ext_resource type="Texture2D" uid="uid://b5wif1mugi0co" path="res://assets/tilesets/FreePack.png/FreePack.png" id="1_nt1pe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nt1pe"]
+size = Vector2(59, 63)
+
+[node name="small_cactus" type="StaticBody2D"]
+
+[node name="PlacementIndicator" type="ColorRect" parent="."]
+visible = false
+offset_left = -31.0
+offset_top = -33.0
+offset_right = 27.0
+offset_bottom = 31.0
+color = Color(0, 0.52156866, 1, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_nt1pe")
+region_enabled = true
+region_rect = Rect2(325.00064, 64.20838, 56.3414, 64.04711)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, -0.5)
+shape = SubResource("RectangleShape2D_nt1pe")
