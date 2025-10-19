@@ -7,7 +7,9 @@ var last_valid_position = Vector2.ZERO
 var TILE_SIZE = 64
 
 
+
 func _ready() -> void:
+	print(Globals.troop1,Globals.troop2,Globals.troop3)
 	for object in objects.get_children():
 		if object.has_signal('selected'):
 			object.selected.connect(_on_object_selected)
@@ -38,7 +40,6 @@ func _input(event: InputEvent) -> void:
 		pass
 		if event.position.distance_to(selected_building.global_position) > TILE_SIZE:
 			_place_selected_building()
-		
 
 func _place_selected_building():
 	if not selected_building:
@@ -51,3 +52,13 @@ func _place_selected_building():
 		selected_building.claim_tiles(placement_grid)
 	selected_building.placement_indicator.hide()
 	selected_building = null
+
+
+
+
+func _on_attack_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/enemy_base.tscn")
+
+
+func _on_train_btn_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/train.tscn")

@@ -1,0 +1,129 @@
+[gd_scene load_steps=13 format=3 uid="uid://c71guv5gktic1"]
+
+[ext_resource type="Script" uid="uid://b6fc1tpea5mu2" path="res://Scripts/train.gd" id="1_akv0e"]
+[ext_resource type="Texture2D" uid="uid://dgb1b5msvaftg" path="res://assets/menu_images/Training.jpg" id="1_pkyfe"]
+[ext_resource type="Texture2D" uid="uid://cvqait1kqxq48" path="res://assets/troops/free-3-character-sprite-sheets-pixel-art/1 Woodcutter/Woodcutter.png" id="2_nxpru"]
+[ext_resource type="Texture2D" uid="uid://cagg7vlywno0j" path="res://assets/troops/free-3-character-sprite-sheets-pixel-art/2 GraveRobber/GraveRobber.png" id="3_mcim7"]
+[ext_resource type="Texture2D" uid="uid://dcqvb7x1ncl7r" path="res://assets/troops/free-3-character-sprite-sheets-pixel-art/3 SteamMan/SteamMan.png" id="4_akv0e"]
+[ext_resource type="Texture2D" uid="uid://db2cjxrcdd3f0" path="res://assets/buttons/dark-set-game-button-elements-progress-bar-bright-different-forms-buttons-games-app/Game_Button_Elements.jpg" id="6_6m011"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xk04q"]
+texture = ExtResource("1_pkyfe")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6m011"]
+bg_color = Color(0.62967473, 0.62967485, 0.62967455, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i3m7v"]
+bg_color = Color(0.40392157, 0.6039216, 0.33333334, 1)
+
+[sub_resource type="InputEventKey" id="InputEventKey_i3m7v"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_obn5x"]
+events = [SubResource("InputEventKey_i3m7v")]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hca7k"]
+atlas = ExtResource("6_6m011")
+region = Rect2(2152, 1183, 828, 835)
+
+[node name="Train" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_akv0e")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1852.8735
+offset_bottom = 1024.0
+scale = Vector2(0.87, 0.87)
+texture = ExtResource("1_pkyfe")
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_xk04q")
+
+[node name="TroopButtons" type="Node" parent="."]
+
+[node name="troop1" type="Button" parent="TroopButtons"]
+offset_left = 7.0
+offset_top = 788.0
+offset_right = 104.0
+offset_bottom = 893.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_6m011")
+icon = ExtResource("2_nxpru")
+expand_icon = true
+
+[node name="troop2" type="Button" parent="TroopButtons"]
+offset_left = 7.0
+offset_top = 677.0
+offset_right = 104.0
+offset_bottom = 782.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_6m011")
+icon = ExtResource("3_mcim7")
+expand_icon = true
+
+[node name="troop3" type="Button" parent="TroopButtons"]
+offset_left = 126.0
+offset_top = 788.0
+offset_right = 223.0
+offset_bottom = 893.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_6m011")
+icon = ExtResource("4_akv0e")
+expand_icon = true
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1593.0
+offset_bottom = 110.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_i3m7v")
+
+[node name="TroopShow" type="Node" parent="Panel2"]
+
+[node name="troop1" type="Button" parent="Panel2/TroopShow"]
+offset_left = 1464.0
+offset_top = -1.0
+offset_right = 1595.0
+offset_bottom = 110.0
+disabled = true
+text = "x0"
+icon = ExtResource("2_nxpru")
+expand_icon = true
+
+[node name="troop2" type="Button" parent="Panel2/TroopShow"]
+offset_left = 1344.0
+offset_right = 1458.0
+offset_bottom = 111.0
+disabled = true
+text = "x0"
+icon = ExtResource("3_mcim7")
+expand_icon = true
+
+[node name="troop3" type="Button" parent="Panel2/TroopShow"]
+offset_left = 1225.0
+offset_right = 1337.0
+offset_bottom = 111.0
+disabled = true
+button_mask = 0
+text = "x0"
+icon = ExtResource("4_akv0e")
+expand_icon = true
+
+[node name="Back" type="TextureButton" parent="."]
+layout_mode = 0
+offset_right = 829.99994
+offset_bottom = 849.99994
+scale = Vector2(0.1, 0.1)
+shortcut = SubResource("Shortcut_obn5x")
+texture_normal = SubResource("AtlasTexture_hca7k")
+
+[connection signal="pressed" from="TroopButtons/troop1" to="." method="_on_troop_1_pressed"]
+[connection signal="pressed" from="TroopButtons/troop2" to="." method="_on_troop_2_pressed"]
+[connection signal="pressed" from="TroopButtons/troop3" to="." method="_on_troop_3_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

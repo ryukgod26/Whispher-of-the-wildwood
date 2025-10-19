@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxtnc454ahx0k"]
+
+[ext_resource type="Texture2D" uid="uid://bfbw7p804o5c2" path="res://assets/canon/Cañon_bala.png" id="1_bohru"]
+[ext_resource type="Script" uid="uid://c2fcmigqjmipr" path="res://Scripts/canon_ball.gd" id="1_o8nga"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o8nga"]
+size = Vector2(151, 114)
+
+[node name="CanonBall" type="RigidBody2D"]
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_o8nga")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.8999989, 0)
+scale = Vector2(0.2, 0.2)
+shape = SubResource("RectangleShape2D_o8nga")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_bohru")
+region_enabled = true
+region_rect = Rect2(512, 336, 160, 112)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

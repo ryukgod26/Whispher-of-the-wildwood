@@ -22,7 +22,9 @@ func check_validity(placement_grid):
 	for x in range(grid_pos.x):
 		for y in range(grid_pos.y):
 			var tile_to_check = grid_pos + Vector2i(x,y)
-			var data = placement_grid.get_cell_custom_data(tile_to_check,"Occupancy")
+			var tile_data = placement_grid.get_cell_tile_data(tile_to_check)
+			print(tile_data)
+			var data = tile_data.get_custom_data("Occupancy")
 			if data != 0:
 				is_valid_placement = false
 				break
@@ -40,7 +42,11 @@ func claim_tiles(placement_grid):
 	for x in range(grid_size.x):
 		for y in range(grid_size.y):
 			var tile_to_claim = grid_pos + Vector2i(x,y)
-			placement_grid.set_cell_custom_data(tile_to_claim,"Occupancy",1)
+			var data = placement_tilemap.get_cell_tile_data(tile_to_claim)
+			if data:
+				data.set_custom_data("Occupancy",1)
+			else:
+				data.set_custom_data("Occupancy",1)
 			
 func unclaim_tiles(placement_grid):
 	var grid_pos = placement_grid.local_to_map(global_position)
@@ -51,5 +57,6 @@ func unclaim_tiles(placement_grid):
 			var data = placement_tilemap.get_cell_tile_data(tile_to_unclaim)
 			if data:
 				print(data.get_custom_data("Occupancy"))
+				data.set_custom_data("Occupancy",0)
 			else:
 				data.set_custom_data("Occupancy",0)
