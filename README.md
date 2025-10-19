@@ -12,4 +12,4 @@ The Main Menu and teh Options Menu of the Game is Working.
 2. Grave Robber: It is a more like more damage Troop with Damage of 3 and health of 2.(It might become a range troop in future updates)
 3. Steam Man: It is more of a tank Troop with health of 5 and damage of 5 but has a debuff of speed.
 
-itch.io[https://ryukgod.itch.io/whisphers-of-the-wildwood]
+you Can try My game on Itch.io: [Whisphers of the Wildwood on itch.io](https://ryukgod.itch.io/whisphers-of-the-wildwood)
